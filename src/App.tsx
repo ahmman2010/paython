@@ -15,6 +15,13 @@ import { LeadsPage } from '@/domains/crm/pages/leads-page'
 import { AppointmentsPage } from '@/domains/appointments/pages/appointments-page'
 import { DealsPage } from '@/domains/sales/pages/deals-page'
 import { QuotesPage } from '@/domains/sales/pages/quotes-page'
+import { ContractsPage } from '@/domains/sales/pages/contracts-page'
+import { DeliveryPage } from '@/domains/sales/pages/delivery-page'
+import { RegistrationPage } from '@/domains/sales/pages/registration-page'
+import { SalesTeamPage } from '@/domains/sales/pages/sales-team-page'
+import { TeleSalesPage } from '@/domains/sales/pages/tele-sales-page'
+import { InvoicesPage } from '@/domains/billing/pages/invoices-page'
+import { PaymentsPage } from '@/domains/billing/pages/payments-page'
 import { ReportsPage } from '@/domains/reports/pages/reports-page'
 import { SettingsPage } from '@/domains/admin/pages/settings-page'
 
@@ -23,10 +30,17 @@ import { PublicLandingPage } from '@/domains/inventory/pages/public-landing-page
 import { PublicCatalogPage } from '@/domains/inventory/pages/public-catalog-page'
 import { PublicCarDetailPage } from '@/domains/inventory/pages/public-car-detail-page'
 import { PublicBookingPage } from '@/domains/appointments/pages/public-booking-page'
+import { PublicOffersPage } from '@/domains/inventory/pages/public-offers-page'
+import { PublicContactPage } from '@/domains/inventory/pages/public-contact-page'
+import { PublicServicesPage } from '@/domains/inventory/pages/public-services-page'
 
 // Admin pages
 import { AdminDashboardPage } from '@/domains/admin/pages/admin-dashboard-page'
 import { AdminCompaniesPage } from '@/domains/admin/pages/admin-companies-page'
+import { AdminPlansPage } from '@/domains/admin/pages/admin-plans-page'
+import { AdminTemplatesPage } from '@/domains/admin/pages/admin-templates-page'
+import { AdminIntegrationsPage } from '@/domains/admin/pages/admin-integrations-page'
+import { AuditLogsPage } from '@/domains/admin/pages/audit-logs-page'
 
 // i18n
 import '@/shared/i18n/config'
@@ -60,16 +74,16 @@ function App() {
             <Route path="appointments" element={<AppointmentsPage />} />
             <Route path="deals" element={<DealsPage />} />
             <Route path="quotes" element={<QuotesPage />} />
-            <Route path="contracts" element={<PlaceholderPage title="Contracts" />} />
-            <Route path="invoices" element={<PlaceholderPage title="Invoices" />} />
-            <Route path="payments" element={<PlaceholderPage title="Payments" />} />
-            <Route path="delivery" element={<PlaceholderPage title="Delivery" />} />
-            <Route path="registration" element={<PlaceholderPage title="Registration" />} />
-            <Route path="sales-team" element={<PlaceholderPage title="Sales Team" />} />
-            <Route path="tele-sales" element={<PlaceholderPage title="Tele-Sales" />} />
+            <Route path="contracts" element={<ContractsPage />} />
+            <Route path="invoices" element={<InvoicesPage />} />
+            <Route path="payments" element={<PaymentsPage />} />
+            <Route path="delivery" element={<DeliveryPage />} />
+            <Route path="registration" element={<RegistrationPage />} />
+            <Route path="sales-team" element={<SalesTeamPage />} />
+            <Route path="tele-sales" element={<TeleSalesPage />} />
             <Route path="reports" element={<ReportsPage />} />
             <Route path="settings" element={<SettingsPage />} />
-            <Route path="audit-logs" element={<PlaceholderPage title="Audit Logs" />} />
+            <Route path="audit-logs" element={<AuditLogsPage />} />
           </Route>
 
           {/* Platform Admin */}
@@ -77,10 +91,10 @@ function App() {
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<AdminDashboardPage />} />
             <Route path="companies" element={<AdminCompaniesPage />} />
-            <Route path="plans" element={<PlaceholderPage title="Subscription Plans" />} />
-            <Route path="templates" element={<PlaceholderPage title="Global Templates" />} />
-            <Route path="integrations" element={<PlaceholderPage title="Global Integrations" />} />
-            <Route path="audit-logs" element={<PlaceholderPage title="Audit Logs" />} />
+            <Route path="plans" element={<AdminPlansPage />} />
+            <Route path="templates" element={<AdminTemplatesPage />} />
+            <Route path="integrations" element={<AdminIntegrationsPage />} />
+            <Route path="audit-logs" element={<AuditLogsPage />} />
           </Route>
 
           {/* Public Company Pages */}
@@ -89,9 +103,9 @@ function App() {
             <Route path="cars" element={<PublicCatalogPage />} />
             <Route path="cars/:carId" element={<PublicCarDetailPage />} />
             <Route path="book" element={<PublicBookingPage />} />
-            <Route path="offers" element={<PlaceholderPage title="Special Offers" />} />
-            <Route path="contact" element={<PlaceholderPage title="Contact Us" />} />
-            <Route path="services" element={<PlaceholderPage title="Services" />} />
+            <Route path="offers" element={<PublicOffersPage />} />
+            <Route path="contact" element={<PublicContactPage />} />
+            <Route path="services" element={<PublicServicesPage />} />
           </Route>
 
           {/* Default redirect */}
@@ -99,15 +113,6 @@ function App() {
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
-  )
-}
-
-function PlaceholderPage({ title }: { title: string }) {
-  return (
-    <div className="flex flex-col items-center justify-center py-20 text-gray-400">
-      <h2 className="text-xl font-semibold mb-2">{title}</h2>
-      <p className="text-sm">Coming soon - Phase 2</p>
-    </div>
   )
 }
 
